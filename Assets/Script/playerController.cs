@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
-    public Transform[] node;
+    public Transform player;
+    public Transform HallNode;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,11 +15,15 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (player.position == HallNode.position)
+        {
+            moveFromNodeToNode.DestNode = transform;
+            Debug.Log("yo");
+        }
     }
 
-    void OnClick()
+    void OnMouseDown()
     {
-        moveFromNodeToNode.DestNode = transform;
+        moveFromNodeToNode.DestNode = HallNode;
     }
 }

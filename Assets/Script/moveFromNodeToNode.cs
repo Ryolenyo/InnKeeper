@@ -7,12 +7,12 @@ public class moveFromNodeToNode : MonoBehaviour
 
     public static Transform DestNode;
 
-    public int speed = 2;
+    public static int speed = 5;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        DestNode = transform;
     }
 
     // Update is called once per frame

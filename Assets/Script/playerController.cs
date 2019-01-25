@@ -19,6 +19,6 @@ public class playerController : MonoBehaviour
 
     void OnClick()
     {
-    
+        moveFromNodeToNode.DestNode = transform;
     }
 }

@@ -5,8 +5,7 @@ using UnityEngine;
 public class moveFromNodeToNode : MonoBehaviour
 {
 
-    public Transform NowNode;
-    public Transform DestNode;
+    public static Transform DestNode;
 
     public int speed = 2;
 

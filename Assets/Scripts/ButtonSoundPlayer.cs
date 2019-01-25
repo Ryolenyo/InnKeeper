@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ButtonSoundPlayer : MonoBehaviour
 {
-    public Sfx soundEnum;
+    public SfxEnum soundEnum;
     public bool useLocation = false;
     public Vector3 location;
 
     public void OnClickCommand()
     {
-        if(useLocation)
+        if (useLocation)
         {
             PlaySfx();
         }

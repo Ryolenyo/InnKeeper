@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Sfx
+public enum SfxEnum
 {
     ReceptionBell,
     UiClick,
@@ -13,25 +13,24 @@ public enum Sfx
 
 public class SfxPlayer : MonoBehaviour
 {
-    private static SfxPlayer instance;
-
     [Header("SFX Audio Clip")]
-    public AudioClip ReceptionBellClip;
-    public AudioClip UiClickClip;
-    public AudioClip HeroCheckoutHappyClip;
-    public AudioClip HeroCheckoutNeutralClip;
-    public AudioClip HeroCheckoutAngryClip;
+    public AudioClip receptionBellClip;
+    public AudioClip uiClickClip;
+    public AudioClip heroCheckoutHappyClip;
+    public AudioClip heroCheckoutNeutralClip;
+    public AudioClip heroCheckoutAngryClip;
 
     [Header("Volume")]
     [Range(0.0f, 1.0f)] public float volume = 1.0f;
 
-    private Dictionary<Sfx, AudioClip> sfxDictionary;
+    private static SfxPlayer instance;
+    private Dictionary<SfxEnum, AudioClip> sfxDictionary;
 
     // Start is called before the first frame update
     void Start()
     {
         UpdateSingleton();
-        CheckAudioClip();
+        CheckComponent();
         PopulateSfxDictionary();
     }
 
@@ -42,15 +41,15 @@ public class SfxPlayer : MonoBehaviour
 
     }
 
-    public static void PlaySfx(Sfx sfxEnum)
+    public static void PlaySfx(SfxEnum sfxEnum)
     {
-        if(instance)
+        if (instance)
         {
             instance.PlaySfxInstance(sfxEnum, Vector3.zero);
         }
     }
 
-    public static void PlaySfxAtLocation(Sfx sfxEnum, Vector3 location)
+    public static void PlaySfxAtLocation(SfxEnum sfxEnum, Vector3 location)
     {
         if (instance)
         {
@@ -58,12 +57,12 @@ public class SfxPlayer : MonoBehaviour
         }
     }
 
-    private void PlaySfxInstance(Sfx sfxEnum, Vector3 location)
+    private void PlaySfxInstance(SfxEnum sfxEnum, Vector3 location)
     {
         AudioClip targetClip = null;
         sfxDictionary.TryGetValue(sfxEnum, out targetClip);
 
-        if(targetClip)
+        if (targetClip)
         {
             AudioSource.PlayClipAtPoint(targetClip, location, volume);
         }
@@ -75,18 +74,17 @@ public class SfxPlayer : MonoBehaviour
 
     private void PopulateSfxDictionary()
     {
-        sfxDictionary = new Dictionary<Sfx, AudioClip>();
-
-        sfxDictionary.Add(Sfx.ReceptionBell, ReceptionBellClip);
-        sfxDictionary.Add(Sfx.UiClick, UiClickClip);
-        sfxDictionary.Add(Sfx.HeroCheckoutHappy, HeroCheckoutHappyClip);
-        sfxDictionary.Add(Sfx.HeroCheckoutNeutral, HeroCheckoutNeutralClip);
-        sfxDictionary.Add(Sfx.HeroCheckoutAngry, HeroCheckoutAngryClip);
+        sfxDictionary = new Dictionary<SfxEnum, AudioClip>();
+        sfxDictionary.Add(SfxEnum.ReceptionBell, receptionBellClip);
+        sfxDictionary.Add(SfxEnum.UiClick, uiClickClip);
+        sfxDictionary.Add(SfxEnum.HeroCheckoutHappy, heroCheckoutHappyClip);
+        sfxDictionary.Add(SfxEnum.HeroCheckoutNeutral, heroCheckoutNeutralClip);
+        sfxDictionary.Add(SfxEnum.HeroCheckoutAngry, heroCheckoutAngryClip);
     }
 
     private void OnDestroy()
     {
-        if(instance == this)
+        if (instance == this)
         {
             instance = null;
         }
@@ -99,12 +97,12 @@ public class SfxPlayer : MonoBehaviour
         Debug.Assert(instance, "SfxPlayer: No instance refernce");
     }
 
-    private void CheckAudioClip()
+    private void CheckComponent()
     {
-        Debug.Assert(ReceptionBellClip, "SfxPlayer: ReceptionBellClip");
-        Debug.Assert(UiClickClip, "SfxPlayer: UiClickClip");
-        Debug.Assert(HeroCheckoutHappyClip, "SfxPlayer: HeroCheckoutHappyClip");
-        Debug.Assert(HeroCheckoutNeutralClip, "SfxPlayer: HeroCheckoutNeutralClip");
-        Debug.Assert(HeroCheckoutAngryClip, "SfxPlayer: HeroCheckoutAngryClip");
+        Debug.Assert(receptionBellClip, "SfxPlayer: ReceptionBellClip not found");
+        Debug.Assert(uiClickClip, "SfxPlayer: UiClickClip not found");
+        Debug.Assert(heroCheckoutHappyClip, "SfxPlayer: HeroCheckoutHappyClip not found");
+        Debug.Assert(heroCheckoutNeutralClip, "SfxPlayer: HeroCheckoutNeutralClip not found");
+        Debug.Assert(heroCheckoutAngryClip, "SfxPlayer: HeroCheckoutAngryClip not found");
     }
 }

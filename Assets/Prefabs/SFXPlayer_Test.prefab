@@ -43,12 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a06ccded5c9984b8187f3a309ac268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReceptionBellClip: {fileID: 8300000, guid: f130bf0ddeab2754e98c9f9348a9fae3, type: 3}
-  UiClickClip: {fileID: 8300000, guid: 534a8255b012ee749b1b32a7a0fc56ce, type: 3}
-  HeroCheckoutHappyClip: {fileID: 8300000, guid: 314ded88063e97f48bf5b73f2505f4d7,
+  receptionBellClip: {fileID: 8300000, guid: f130bf0ddeab2754e98c9f9348a9fae3, type: 3}
+  uiClickClip: {fileID: 8300000, guid: 534a8255b012ee749b1b32a7a0fc56ce, type: 3}
+  heroCheckoutHappyClip: {fileID: 8300000, guid: 314ded88063e97f48bf5b73f2505f4d7,
     type: 3}
-  HeroCheckoutNeutralClip: {fileID: 8300000, guid: 8c589d0972c7d1c4590d5a3fec054e95,
+  heroCheckoutNeutralClip: {fileID: 8300000, guid: 8c589d0972c7d1c4590d5a3fec054e95,
     type: 3}
-  HeroCheckoutAngryClip: {fileID: 8300000, guid: a6f9b967fe590654782ecdd8dce89ee8,
+  heroCheckoutAngryClip: {fileID: 8300000, guid: a6f9b967fe590654782ecdd8dce89ee8,
     type: 3}
   volume: 1

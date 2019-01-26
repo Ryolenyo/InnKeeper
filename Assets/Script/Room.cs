@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class Room : MonoBehaviour
 {
     public Transform player;
     public Transform destHall;

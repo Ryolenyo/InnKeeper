@@ -6,6 +6,7 @@ public class moveFromNodeToNode : MonoBehaviour
 {
 
     public static Transform NowNode;
+    public Transform nowwww;
     public static Transform DestNode;
     public static Transform FinalNode;
 
@@ -28,6 +29,7 @@ public class moveFromNodeToNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        nowwww = NowNode;
         if (transform.position != DestNode.position){
             transform.position = Vector2.MoveTowards(transform.position,DestNode.position,Time.deltaTime*speed);
         }

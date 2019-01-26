@@ -49,6 +49,8 @@ public class Hero : MonoBehaviour
         EatingTime = Random.Range(eatingMin, eatingMax);
         CheckoutTime = Random.Range(checkoutMin, checkoutMax);
         movement = GetComponent<NodeToNodeMovement>();
+        movement.currentNode = ReceptionRoom.instance.gameObject;
+        movement.exitHallNode = ReceptionRoom.instance.hallNode;
     }
 
     void Update()
@@ -90,7 +92,7 @@ public class Hero : MonoBehaviour
                     isCheckout = true;
                     time = 0;
 
-                    //goTo("Reception");
+                    movement.SetDestination(ReceptionRoom.instance.gameObject, ReceptionRoom.instance.hallNode);
                 }
             }
         }
@@ -129,16 +131,6 @@ public class Hero : MonoBehaviour
                 time = 0;
             }
         }
-
-        //Check out success
-        else if (isDone)
-        {
-            Debug.Log(Emotion);
-            //addscore
-            Destroy(gameObject);
-        }
-
-
     }
 
     public void AssignRoom(BedroomNode roomNode)
@@ -151,6 +143,7 @@ public class Hero : MonoBehaviour
     public void AssignTable(TableRoomNode tableNode)
     {
         this.tableNode = tableNode;
+        tableNode.hasOrder = true;
         tableNode.foodNumber = heroOrder;
     }
 
@@ -164,5 +157,7 @@ public class Hero : MonoBehaviour
     public void Checkout()
     {
         isDone = true;
+        Debug.Log(Emotion);
+        Destroy(gameObject);
     }
 }

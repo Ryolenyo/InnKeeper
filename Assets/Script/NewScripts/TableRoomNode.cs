@@ -26,6 +26,7 @@ public class TableRoomNode : RoomNode
         {
             if(Player.SetHasOrder(true, orderNumber))
             {
+                Debug.Log("Get Order");
                 hasOrder = false;
                 //show food bubble
             }
@@ -39,6 +40,7 @@ public class TableRoomNode : RoomNode
         {
             if(Player.SetHasFood(false, 0))
             {
+                Debug.Log("Sent Food");
                 hasFood = true;
                 foodNumber = orderNumber;
                 hero.ReceivedFood();

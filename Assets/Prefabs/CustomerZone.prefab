@@ -416,12 +416,12 @@ MonoBehaviour:
   bedroomNode: {fileID: 8593219586265100680}
   customer: {fileID: 6132647803716599895}
   plate: {fileID: 4243723657498770182}
-  hasPlate: 0
   hasFood: 0
   hasCustomer: 0
   hasOrder: 0
   foodNumber: 0
   orderNumber: 0
+  hero: {fileID: 0}
 --- !u!1001 &7455020186431276715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -494,6 +494,11 @@ PrefabInstance:
       propertyPath: hallNode
       value: 
       objectReference: {fileID: 8593219585019164768}
+    - target: {fileID: 1167754960710465315, guid: 491e5077479e20f4183f95f37b0477dc,
+        type: 3}
+      propertyPath: tableRoomNode
+      value: 
+      objectReference: {fileID: 4535533211687917873}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 491e5077479e20f4183f95f37b0477dc, type: 3}
 --- !u!4 &8593219586265100681 stripped

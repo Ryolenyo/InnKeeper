@@ -19,11 +19,12 @@ public class ReceptionRoom : RoomNode
     public GameObject playerPositionNode;
     public GameObject playerCustomerPositionNode;
 
-    private ReceptionRoom instance;
+    public static ReceptionRoom instance;
     private List<Hero> checkinList;
     private List<Hero> checkoutList;
 
     // Start is called before the first frame update
+
     void Start()
     {
         instance = this;

@@ -91,7 +91,7 @@ public class Hero : MonoBehaviour
                     Debug.Log("I Gotta go.");
                     isCheckout = true;
                     time = 0;
-
+                    roomNode.Checkout();
                     movement.SetDestination(ReceptionRoom.instance.gameObject, ReceptionRoom.instance.hallNode);
                 }
             }
@@ -116,7 +116,6 @@ public class Hero : MonoBehaviour
             if (time > EatingTime)
             {
                 movement.SetDestination(roomNode.gameObject, roomNode.hallNode);
-                roomNode.Checkout();
                 isHungry = false;
             }
         }

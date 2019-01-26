@@ -70,6 +70,7 @@ public class ReceptionRoom : RoomNode
         if(customer.GetComponent<Hero>().isCheckout)
         {
             checkoutList.Add(customer.GetComponent<Hero>());
+            SfxPlayer.PlaySfx(SfxEnum.HeroCheckout);
             UpdateHeroPosition();
         }
     }
@@ -86,6 +87,7 @@ public class ReceptionRoom : RoomNode
         {
             checkinList.Add(hero);
             UpdateHeroPosition();
+            SfxPlayer.PlaySfx(SfxEnum.HeroCheckIn);
         }
     }
 

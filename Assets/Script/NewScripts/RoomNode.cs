@@ -29,5 +29,6 @@ public class RoomNode : MonoBehaviour
     void OnMouseDown()
     {
         Player.SetDestination(this.gameObject, hallNode);
+        SfxPlayer.PlaySfx(SfxEnum.Click2);
     }
 }

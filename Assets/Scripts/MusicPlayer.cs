@@ -6,8 +6,7 @@ public enum MusicEnum
 {
     None,
     Menu,
-    GameplayNormal,
-    Result
+    GameplayNormal
 }
 
 public class MusicPlayer : MonoBehaviour
@@ -15,7 +14,6 @@ public class MusicPlayer : MonoBehaviour
     [Header("Music Audio Clip")]
     public AudioClip menuClip;
     public AudioClip gameplayNormalClip;
-    public AudioClip resultClip;
 
     private static MusicPlayer instance;
     private AudioSource audioSource;
@@ -146,7 +144,6 @@ public class MusicPlayer : MonoBehaviour
 
         Debug.Assert(menuClip, "MusicPlayer: menuClip not found");
         Debug.Assert(gameplayNormalClip, "MusicPlayer: gameplayNormalClip not found");
-        Debug.Assert(resultClip, "MusicPlayer: resultClip not found");
     }
 
     private void PopulateSfxDictionary()
@@ -154,6 +151,5 @@ public class MusicPlayer : MonoBehaviour
         musicDictionary = new Dictionary<MusicEnum, AudioClip>();
         musicDictionary.Add(MusicEnum.Menu, menuClip);
         musicDictionary.Add(MusicEnum.GameplayNormal, gameplayNormalClip);
-        musicDictionary.Add(MusicEnum.Result, resultClip);
     }
 }

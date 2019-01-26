@@ -158,7 +158,13 @@ public class Hero : MonoBehaviour
     public void Checkout()
     {
         isDone = true;
-        Debug.Log(Emotion);
+        GameTracker.AddScore(Emotion);
+        if(Emotion >= 50)
+            SfxPlayer.PlaySfx(SfxEnum.ResultGood);
+        else if(Emotion >= 0)
+            SfxPlayer.PlaySfx(SfxEnum.ResultNormal);
+        else
+            SfxPlayer.PlaySfx(SfxEnum.ResultBad);
         Destroy(gameObject);
     }
 }

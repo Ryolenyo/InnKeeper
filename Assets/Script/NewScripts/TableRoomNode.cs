@@ -44,6 +44,7 @@ public class TableRoomNode : RoomNode
                 hasFood = true;
                 foodNumber = orderNumber;
                 hero.ReceivedFood();
+                SfxPlayer.PlaySfx(SfxEnum.HeroGetFood);
                 //set food image
             }
         }
@@ -59,6 +60,7 @@ public class TableRoomNode : RoomNode
         customer.transform.position = this.customer.transform.position;
         hero = customer.GetComponent<Hero>();
         hero.AssignTable(this);
+        SfxPlayer.PlaySfx(SfxEnum.HeroHungry);
     }
 
     public override void CustomerExitCommand(GameObject customer)

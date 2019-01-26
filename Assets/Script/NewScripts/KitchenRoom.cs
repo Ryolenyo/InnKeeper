@@ -31,6 +31,7 @@ public class KitchenRoom : RoomNode
             if(currentTime >= cookTime)
             {
                 Debug.Log("Food Done");
+                SfxPlayer.PlaySfx(SfxEnum.KitchenFoodDone);
                 currentTime = 0;
                 foodDone.Add(orderReceived[0]);
                 orderReceived.RemoveAt(0);

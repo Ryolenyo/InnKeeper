@@ -140,6 +140,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e90015e0bcbaa747ab2c6a7369d19b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuClip: {fileID: 8300000, guid: 502d7eecce7ab384b97cfb1e5d36ab4f, type: 3}
-  gameplayNormalClip: {fileID: 8300000, guid: baaa2ae907c7f164f8f2e32661df7867, type: 3}
-  resultClip: {fileID: 8300000, guid: e8a9a55a275376842a70223b6b6a9f0e, type: 3}
+  menuClip: {fileID: 8300000, guid: f216d4e2bc3e30146ad8db7f048f7487, type: 3}
+  gameplayNormalClip: {fileID: 8300000, guid: 38e222341dd08ed4d87718d78cd5cc6b, type: 3}

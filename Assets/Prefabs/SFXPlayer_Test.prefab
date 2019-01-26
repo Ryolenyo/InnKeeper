@@ -43,12 +43,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a06ccded5c9984b8187f3a309ac268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  receptionBellClip: {fileID: 8300000, guid: f130bf0ddeab2754e98c9f9348a9fae3, type: 3}
-  uiClickClip: {fileID: 8300000, guid: 534a8255b012ee749b1b32a7a0fc56ce, type: 3}
-  heroCheckoutHappyClip: {fileID: 8300000, guid: 314ded88063e97f48bf5b73f2505f4d7,
-    type: 3}
-  heroCheckoutNeutralClip: {fileID: 8300000, guid: 8c589d0972c7d1c4590d5a3fec054e95,
-    type: 3}
-  heroCheckoutAngryClip: {fileID: 8300000, guid: a6f9b967fe590654782ecdd8dce89ee8,
-    type: 3}
+  KitchenFoodDone: {fileID: 8300000, guid: 113330fa78f0b8c49b0e64575ab60efa, type: 3}
+  BedroomCleanDone: {fileID: 8300000, guid: 10501e0bceebfc449a543312ea759d23, type: 3}
+  Click1: {fileID: 8300000, guid: bd2218ed4e7acb14e82337342b61dad2, type: 3}
+  Click2: {fileID: 8300000, guid: a0bc38eb576a5ba46bda7fca6b2a55a9, type: 3}
+  Click3: {fileID: 8300000, guid: 335a0bbbdd1d4644fa14acd63fe38c6f, type: 3}
+  HeroCheckIn: {fileID: 8300000, guid: 58293ff2717aa1f4eadae8de8ca96420, type: 3}
+  HeroHungry: {fileID: 8300000, guid: 000bc8c4b76800e4f9edbd43ac942470, type: 3}
+  HeroGetFood: {fileID: 8300000, guid: daba9d983f47867459fc1b6d3ada6633, type: 3}
+  HeroRoomGood: {fileID: 8300000, guid: c14ee5488753f504c83a7727ebc45975, type: 3}
+  HeroRoomNormal: {fileID: 8300000, guid: b791d8b107a7cba479bd7dcaa8c273e4, type: 3}
+  HeroRoomBad: {fileID: 8300000, guid: 0d283685dbf409149b266592104b2679, type: 3}
+  HeroCheckout: {fileID: 8300000, guid: 059bd2dbc5bc2b541af0b0b420ac3c33, type: 3}
+  ResultGood: {fileID: 8300000, guid: cc597fca1486ec04b884e71eaa2986ba, type: 3}
+  ResultNormal: {fileID: 8300000, guid: b7959b8f649fc724f8571e716c84c2cd, type: 3}
+  ResultBad: {fileID: 8300000, guid: b1cc30af91f8c7c4e9fe221d24a741e8, type: 3}
   volume: 1

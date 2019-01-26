@@ -18,6 +18,7 @@ public class BedroomNode : RoomNode
 
     private bool isPlayerIn = false;
     private bool isCustomerCheckIn = false;
+    private bool cleanFlag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,11 @@ public class BedroomNode : RoomNode
         {
             currentCleaness += cleanRate * Time.deltaTime;
             currentCleaness = Mathf.Clamp(currentCleaness, 0, maxCleaness);
+            if(currentCleaness == maxCleaness && !cleanFlag)
+            {
+                SfxPlayer.PlaySfx(SfxEnum.BedroomCleanDone);
+                cleanFlag = true;
+            }
             UpdateCleanImage();
         }
     }
@@ -75,6 +81,12 @@ public class BedroomNode : RoomNode
         {
             customer.GetComponent<Hero>().impression = true;
             customer.GetComponent<Hero>().Emotion += (int)((currentCleaness - 50));
+            if(currentCleaness / maxCleaness >= 0.75)
+                SfxPlayer.PlaySfx(SfxEnum.HeroRoomGood);
+            else if(currentCleaness / maxCleaness > 0.5)
+                SfxPlayer.PlaySfx(SfxEnum.HeroRoomNormal);
+            else
+                SfxPlayer.PlaySfx(SfxEnum.HeroRoomBad);
         }
         
     }
@@ -89,6 +101,7 @@ public class BedroomNode : RoomNode
     {
         isCustomerCheckIn = false;
         currentCleaness = 0;
+        cleanFlag = false;
         UpdateCleanImage();
     }
 

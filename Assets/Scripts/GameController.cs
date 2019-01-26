@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     {
         if(!flag)
         {
+            MusicPlayer.PlayMusic(MusicEnum.GameplayNormal);
             spawnNewHero();
             spawnNewHero();
             flag = true;

@@ -88,7 +88,8 @@ public class BedroomNode : RoomNode
         {
             customer.GetComponent<Hero>().impression = true;
             customer.GetComponent<Hero>().Emotion += (int)((currentCleaness - 50));
-            if(currentCleaness / maxCleaness >= 0.75)
+            customer.GetComponent<Hero>().UpdateEmotionSprite();
+            if (currentCleaness / maxCleaness >= 0.75)
                 SfxPlayer.PlaySfx(SfxEnum.HeroRoomGood);
             else if(currentCleaness / maxCleaness > 0.5)
                 SfxPlayer.PlaySfx(SfxEnum.HeroRoomNormal);

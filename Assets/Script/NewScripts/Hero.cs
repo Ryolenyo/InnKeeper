@@ -39,6 +39,14 @@ public class Hero : MonoBehaviour
     public int checkinPenalty = 2;
     public float tableTime = 10f;
     public int tablePenalty = 5;
+    public float checkoutTime = 5f;
+    public int checkoutPenalty = 5;
+
+    [Header("Emotion")]
+    public SpriteRenderer emotionSprite;
+    public Sprite goodEmotion;
+    public Sprite normalEmotion;
+    public Sprite badEmotion;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +59,7 @@ public class Hero : MonoBehaviour
         movement = GetComponent<NodeToNodeMovement>();
         movement.currentNode = ReceptionRoom.instance.gameObject;
         movement.exitHallNode = ReceptionRoom.instance.hallNode;
+        UpdateEmotionSprite();
     }
 
     void Update()
@@ -63,6 +72,7 @@ public class Hero : MonoBehaviour
             {
                 Emotion -= checkinPenalty;
                 time = 0;
+                UpdateEmotionSprite();
             }
         }
 
@@ -106,6 +116,7 @@ public class Hero : MonoBehaviour
             {
                 Emotion -= tablePenalty;
                 time = 0;
+                UpdateEmotionSprite();
             }
         }
 
@@ -124,10 +135,11 @@ public class Hero : MonoBehaviour
         else if (isCheckout)
         {
             time += Time.deltaTime * Time.timeScale;
-            if (time > 5) //Decrese Emotion Value When > 5 sec (-5 point per 5 sec)
+            if (time > checkoutTime) //Decrese Emotion Value When > 5 sec (-5 point per 5 sec)
             {
-                Emotion -= 5;
+                Emotion -= checkoutPenalty;
                 time = 0;
+                UpdateEmotionSprite();
             }
         }
     }
@@ -152,18 +164,35 @@ public class Hero : MonoBehaviour
         isEating = true;
         Emotion += 20;
         time = 0;
+        UpdateEmotionSprite();
     }
 
     public void Checkout()
     {
         isDone = true;
         GameTracker.AddScore(Emotion);
-        if(Emotion >= 50)
+        if(Emotion >= 70)
             SfxPlayer.PlaySfx(SfxEnum.ResultGood);
-        else if(Emotion >= 0)
+        else if(Emotion >= 30)
             SfxPlayer.PlaySfx(SfxEnum.ResultNormal);
         else
             SfxPlayer.PlaySfx(SfxEnum.ResultBad);
         Destroy(gameObject);
+    }
+
+    public void UpdateEmotionSprite()
+    {
+        if(Emotion >= 70)
+        {
+            emotionSprite.sprite = goodEmotion;
+        }
+        else if(Emotion >= 30)
+        {
+            emotionSprite.sprite = normalEmotion;
+        }
+        else
+        {
+            emotionSprite.sprite = badEmotion;
+        }
     }
 }

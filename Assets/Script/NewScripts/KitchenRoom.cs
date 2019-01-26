@@ -8,9 +8,10 @@ public class KitchenRoom : RoomNode
     private float currentTime = 0;
 
     [Header("Food Position Node")]
-    public GameObject position1;
-    public GameObject position2;
-    public GameObject position3;
+    public SpriteRenderer [] foodPosition;
+
+    [Header("Food Sprite")]
+    public Sprite[] foodSprite;
 
     private List<int> orderReceived;
     private List<int> foodDone;
@@ -20,6 +21,7 @@ public class KitchenRoom : RoomNode
     {
         orderReceived = new List<int>();
         foodDone = new List<int>();
+        UpdateSprite();
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class KitchenRoom : RoomNode
                 currentTime = 0;
                 foodDone.Add(orderReceived[0]);
                 orderReceived.RemoveAt(0);
-                //update image
+                UpdateSprite();
             }
         }
     }
@@ -54,8 +56,23 @@ public class KitchenRoom : RoomNode
         {
             Player.SetHasFood(true, foodDone[0]);
             foodDone.RemoveAt(0);
-            //update food shelve Image
+            UpdateSprite();
             Debug.Log("Food Send");
+        }
+    }
+
+    private void UpdateSprite()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(foodDone.Count > i)
+            {
+                foodPosition[i].sprite = foodSprite[foodDone[i]];
+            }
+            else
+            {
+                foodPosition[i].sprite = null;
+            }
         }
     }
 }

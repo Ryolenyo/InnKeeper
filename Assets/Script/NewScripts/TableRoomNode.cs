@@ -38,7 +38,7 @@ public class TableRoomNode : RoomNode
 
         if(hasCustomer && !hasFood && orderNumber == Player.instance.foodNumber)
         {
-            if(Player.SetHasFood(false, 0))
+            if(Player.SetHasFood(false, -1))
             {
                 Debug.Log("Sent Food");
                 hasFood = true;

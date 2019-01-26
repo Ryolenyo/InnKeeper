@@ -100,7 +100,7 @@ public class NodeToNodeMovement : MonoBehaviour
             case MovementStatusEnum.Entering:
                 if(destNode != targetNode)
                 {
-                    exitHallNode = destNode.GetComponent<RoomNode>().hallNode;
+                    exitHallNode = enterHallNode;
                     enterHallNode = hallNode;
                     targetNode = destNode;
                     currentState = MovementStatusEnum.Exiting;

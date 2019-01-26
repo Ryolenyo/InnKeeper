@@ -145,7 +145,7 @@ public class Hero : MonoBehaviour
     {
         this.tableNode = tableNode;
         tableNode.hasOrder = true;
-        tableNode.foodNumber = heroOrder;
+        tableNode.orderNumber = heroOrder;
     }
 
     public void ReceivedFood()

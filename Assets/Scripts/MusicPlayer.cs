@@ -37,24 +37,61 @@ public class MusicPlayer : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+        if (instance == this)
+        {
+            instance = null;
+        }
+    }
+
     public static void PlayMusic(MusicEnum musicEnum)
     {
-        instance.PlayMusicInstance(musicEnum);
+        if(instance)
+        {
+            instance.PlayMusicInstance(musicEnum);
+        }
+        else
+        {
+            Debug.LogError("MusicPlayer: No instance refernce");
+        }
+        
     }
 
     public static void Play()
     {
-        instance.PlayInstance();
+        if (instance)
+        {
+            instance.PlayInstance();
+        }
+        else
+        {
+            Debug.LogError("MusicPlayer: No instance refernce");
+        }
     }
 
     public static void Stop()
     {
-        instance.StopInstance();
+        if (instance)
+        {
+            instance.StopInstance();
+        }
+        else
+        {
+            Debug.LogError("MusicPlayer: No instance refernce");
+        }
     }
 
     public static void Pause()
     {
-        instance.PauseInstance();
+        if (instance)
+        {
+            instance.PauseInstance();
+        }
+        else
+        {
+            Debug.LogError("MusicPlayer: No instance refernce");
+        }
     }
 
     private void PlayMusicInstance(MusicEnum musicEnum)
@@ -93,15 +130,6 @@ public class MusicPlayer : MonoBehaviour
     private void PauseInstance()
     {
         audioSource.Pause();
-    }
-
-
-    private void OnDestroy()
-    {
-        if (instance == this)
-        {
-            instance = null;
-        }
     }
 
     private void UpdateSingleton()

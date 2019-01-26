@@ -41,11 +41,23 @@ public class SfxPlayer : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+        if (instance == this)
+        {
+            instance = null;
+        }
+    }
+
     public static void PlaySfx(SfxEnum sfxEnum)
     {
         if (instance)
         {
             instance.PlaySfxInstance(sfxEnum, Vector3.zero);
+        }
+        else
+        {
+            Debug.LogError("SfxPlayer: No instance refernce");
         }
     }
 
@@ -54,6 +66,10 @@ public class SfxPlayer : MonoBehaviour
         if (instance)
         {
             instance.PlaySfxInstance(sfxEnum, location);
+        }
+        else
+        {
+            Debug.LogError("SfxPlayer: No instance refernce");
         }
     }
 
@@ -80,14 +96,6 @@ public class SfxPlayer : MonoBehaviour
         sfxDictionary.Add(SfxEnum.HeroCheckoutHappy, heroCheckoutHappyClip);
         sfxDictionary.Add(SfxEnum.HeroCheckoutNeutral, heroCheckoutNeutralClip);
         sfxDictionary.Add(SfxEnum.HeroCheckoutAngry, heroCheckoutAngryClip);
-    }
-
-    private void OnDestroy()
-    {
-        if (instance == this)
-        {
-            instance = null;
-        }
     }
 
     private void UpdateSingleton()

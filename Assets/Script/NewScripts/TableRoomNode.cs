@@ -9,7 +9,10 @@ public class TableRoomNode : RoomNode
 
     [Header("Position Node")]
     public GameObject customer;
-    public GameObject plate;
+
+    [Header("Food")]
+    public SpriteRenderer foodOnTable;
+    public Sprite[] food;
 
     [Header("Order Bubble")]
     public SpriteRenderer orderBubble;
@@ -27,6 +30,7 @@ public class TableRoomNode : RoomNode
     private void Start()
     {
         orderBubble.sprite = null;
+        foodOnTable.sprite = null;
     }
 
     public override void PlayerCommand(GameObject player)
@@ -56,7 +60,7 @@ public class TableRoomNode : RoomNode
                 hero.ReceivedFood();
                 SfxPlayer.PlaySfx(SfxEnum.HeroGetFood);
                 orderBubble.sprite = null;
-                //set food image
+                foodOnTable.sprite = food[foodNumber];
                 //remove food image from player
             }
         }
@@ -81,6 +85,6 @@ public class TableRoomNode : RoomNode
         hasCustomer = false;
         hasFood = false;
         customer.transform.position = transform.position;
-        //remove food image
+        foodOnTable.sprite = null;
     }
 }

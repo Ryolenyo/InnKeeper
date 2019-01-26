@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GameTracker.OnTimerDone += OnTimeUp;
     }
 
     // Update is called once per frame
@@ -38,6 +38,11 @@ public class GameController : MonoBehaviour
             spawnNewHero();
             ResetDalay();
         }
+    }
+
+    private void OnDestroy()
+    {
+        GameTracker.OnTimerDone -= OnTimeUp;
     }
 
     void spawnNewHero()

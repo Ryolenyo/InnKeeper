@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BedroomNode : RoomNode
 {
+    [Header("Room Node")]
+    public TableRoomNode tableRoomNode;
+
     [Header("Position Node")]
     public GameObject sleepNode;
     public GameObject cleanNode;
@@ -41,6 +44,8 @@ public class BedroomNode : RoomNode
             if(Player.HasCustomer())
             {
                 isCustomerCheckIn = true;
+                Player.instance.customer.GetComponent<Hero>().AssignRoom(this);
+
             }
             else
             {
@@ -65,12 +70,19 @@ public class BedroomNode : RoomNode
     public override void CustomerCommand(GameObject customer)
     {
         customer.transform.position = sleepNode.transform.position;
-        //customer.assignroom(this)
+        customer.GetComponent<Hero>().isInRoom = true;
+        if (!customer.GetComponent<Hero>().impression)
+        {
+            customer.GetComponent<Hero>().impression = true;
+            customer.GetComponent<Hero>().Emotion += (int)((currentCleaness - 50));
+        }
+        
     }
 
     public override void CustomerExitCommand(GameObject customer)
     {
         customer.transform.position = transform.position;
+        customer.GetComponent<Hero>().isInRoom = false;
     }
 
     public void Checkout()

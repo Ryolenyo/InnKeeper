@@ -7,9 +7,13 @@ public class Player : MonoBehaviour
     [Header("Node List")]
     public GameObject reception;
 
-    private static Player instance;
+    public static Player instance;
     private NodeToNodeMovement movement;
-    private GameObject customer;
+    public GameObject customer;
+    public bool hasFood { get; private set; }
+    public int foodNumber;
+    public bool hasOrder { get; private set; }
+    public int orderNumber;
 
     // Start is called before the first frame update
     void Start()
@@ -45,4 +49,29 @@ public class Player : MonoBehaviour
         instance = null;
     }
 
+
+    public static bool SetHasFood(bool value, int foodNumber)
+    {
+        if (instance.hasFood != value)
+        {
+            instance.hasFood = value;
+            instance.foodNumber = foodNumber;
+            return true;
+            //set bubble image
+        }
+        else return false;
+    }
+
+    public static bool SetHasOrder(bool value, int orderNumber)
+    {
+        if (instance.hasOrder != value)
+        {
+            instance.hasOrder = value;
+            instance.orderNumber = orderNumber;
+            //set bubble image
+            return true;
+
+        }
+        else return false;
+    }
 }

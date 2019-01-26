@@ -6,8 +6,6 @@ public class RoomNode : MonoBehaviour
 {
     public GameObject hallNode;
 
-    
-
     public virtual void PlayerCommand(GameObject player)
     {
         Debug.Log("Player at " + gameObject.name);

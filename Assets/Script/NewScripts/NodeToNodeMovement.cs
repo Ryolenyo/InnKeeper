@@ -62,6 +62,8 @@ public class NodeToNodeMovement : MonoBehaviour
 
     public void SetDestination(GameObject destNode, GameObject hallNode)
     {
+        if (targetNode == destNode) return;
+
         switch (currentState)
         {
             case MovementStatusEnum.Stop:

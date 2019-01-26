@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1167754960710465319}
   - component: {fileID: 1167754960710465315}
   m_Layer: 0
-  m_Name: Room_1
+  m_Name: BedroomNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167754960710465318}
-  m_LocalRotation: {x: -0, y: -0, z: 0.38782564, w: 0.9217328}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38782933, w: 0.9217312}
   m_LocalPosition: {x: -0.46568084, y: 1.0614059, z: 0}
   m_LocalScale: {x: 1.956871, y: 2.0147998, z: 1}
   m_Children:
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 1167754960988402350}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45.639004}
 --- !u!33 &1167754960710465317
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hallNode: {fileID: 0}
+  tableRoomNode: {fileID: 0}
   sleepNode: {fileID: 1167754960905878894}
   cleanNode: {fileID: 1167754960988402338}
   maxCleaness: 100

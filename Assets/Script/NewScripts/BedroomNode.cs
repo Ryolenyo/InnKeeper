@@ -29,6 +29,7 @@ public class BedroomNode : RoomNode
         if(isPlayerIn)
         {
             currentCleaness += cleanRate * Time.deltaTime;
+            currentCleaness = Mathf.Clamp(currentCleaness, 0, maxCleaness);
             UpdateCleanImage();
         }
     }

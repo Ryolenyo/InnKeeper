@@ -27,7 +27,7 @@ public class KitchenRoom : RoomNode
     {
         if(orderReceived.Count > 0)
         {
-            currentTime += Time.deltaTime;
+            currentTime += Time.deltaTime * Time.timeScale;
             if(currentTime >= cookTime)
             {
                 Debug.Log("Food Done");

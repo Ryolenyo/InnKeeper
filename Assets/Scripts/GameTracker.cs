@@ -24,7 +24,7 @@ public class GameTracker : MonoBehaviour
     {
         if (isTimerUse)
         {
-            timeLeft -= Time.deltaTime;
+            timeLeft -= Time.deltaTime * Time.timeScale;
             if(timeLeft <= 0)
             {
                 timeLeft = 0;

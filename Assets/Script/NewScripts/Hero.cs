@@ -58,7 +58,7 @@ public class Hero : MonoBehaviour
         //Waiting For Check In
         if (!isCheckIn)
         {
-            time += Time.deltaTime;
+            time += Time.deltaTime * Time.timeScale;
             if (time > checkinTime) //Decrese Emotion Value When > 5 sec (-5 point per 5 sec)
             {
                 Emotion -= checkinPenalty;
@@ -71,7 +71,7 @@ public class Hero : MonoBehaviour
         {
             if (!isEating)
             {
-                time += Time.deltaTime;
+                time += Time.deltaTime * Time.timeScale;
                 if (time > HungryTime)
                 {
                     Debug.Log("I'm hungry.");
@@ -85,7 +85,7 @@ public class Hero : MonoBehaviour
             }
             else //check out
             {
-                time += Time.deltaTime;
+                time += Time.deltaTime * Time.timeScale;
                 if (time > CheckoutTime)
                 {
                     Debug.Log("I Gotta go.");
@@ -101,7 +101,7 @@ public class Hero : MonoBehaviour
         else if (isHungry && !isEating)
         {
 
-            time += Time.deltaTime;
+            time += Time.deltaTime * Time.timeScale;
             if (time > tableTime) //Decrese Emotion Value When > 10 sec (-5 point per 10 sec)
             {
                 Emotion -= tablePenalty;
@@ -112,7 +112,7 @@ public class Hero : MonoBehaviour
         //Eating Duration
         else if (isHungry && isEating && !isInRoom)
         {
-            time += Time.deltaTime;
+            time += Time.deltaTime * Time.timeScale;
             if (time > EatingTime)
             {
                 movement.SetDestination(roomNode.gameObject, roomNode.hallNode);
@@ -124,7 +124,7 @@ public class Hero : MonoBehaviour
         //Hero at reception
         else if (isCheckout)
         {
-            time += Time.deltaTime;
+            time += Time.deltaTime * Time.timeScale;
             if (time > 5) //Decrese Emotion Value When > 5 sec (-5 point per 5 sec)
             {
                 Emotion -= 5;

@@ -29,7 +29,7 @@ public class HeroController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
+        time += Time.deltaTime * Time.timeScale;
 
         //timeGenerator();
 

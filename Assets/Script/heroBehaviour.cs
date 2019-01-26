@@ -24,7 +24,8 @@ public class HeroBehaviour : MonoBehaviour
     {
 
         if (transform.position != heroDest.position){
-            transform.position = Vector2.MoveTowards(transform.position,heroDest.position,Time.deltaTime*speed);
+            transform.position = Vector2.MoveTowards(transform.position,heroDest.position,
+                Time.deltaTime * speed * Time.timeScale);
         }
 
     }

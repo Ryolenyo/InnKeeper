@@ -362,6 +362,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9cbc1c36c08ec49ab276063b75ade7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnDelay:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.00491333
+      value: 29.954102
+      inSlope: -29.75106
+      outSlope: -29.75106
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.09965017
+    - serializedVersion: 3
+      time: 1.0000741
+      value: 10.051173
+      inSlope: -47.081074
+      outSlope: -47.081074
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07873646
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  gameTime: 180
   heroPrefabs:
   - {fileID: 4119991285692960102, guid: 306cd59df80ed6844a6814d932e11048, type: 3}
 --- !u!4 &718184954

@@ -28,7 +28,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Update()
     {
         if (transform.position != DestNode.position){
-            transform.position = Vector2.MoveTowards(transform.position,DestNode.position,Time.deltaTime*speed);
+            transform.position = Vector2.MoveTowards(transform.position,DestNode.position,Time.deltaTime* speed * Time.timeScale);
         }
         else
         {

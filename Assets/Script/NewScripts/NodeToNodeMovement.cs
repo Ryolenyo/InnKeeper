@@ -118,6 +118,6 @@ public class NodeToNodeMovement : MonoBehaviour
           animation(moveDirection.x, moveDirection.y)*/
 
         transform.position = Vector3.MoveTowards(transform.position
-            , destination.transform.position, Time.deltaTime * speed);
+            , destination.transform.position, Time.deltaTime * speed * Time.timeScale);
     }
 }

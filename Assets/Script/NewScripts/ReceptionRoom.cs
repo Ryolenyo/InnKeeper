@@ -64,6 +64,11 @@ public class ReceptionRoom : RoomNode
         UpdateHeroPosition();
     }
 
+    public override void PlayerExitCommand(GameObject player)
+    {
+        player.transform.position = transform.position;
+    }
+
 
     public override void CustomerCommand(GameObject customer)
     {

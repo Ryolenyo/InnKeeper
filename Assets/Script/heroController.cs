@@ -42,7 +42,7 @@ public class HeroController : MonoBehaviour
             }
             if (hero.position == heroHall.position)
             {
-                heroBehaviour.heroDest = heroRoom; 
+                HeroBehaviour.heroDest = heroRoom; 
                 isGetRoom = false;
                 isAtHall = false;
             }
@@ -57,7 +57,7 @@ public class HeroController : MonoBehaviour
             }
             if (hero.position == heroHall.position)
             {
-                heroBehaviour.heroDest = heroTable;
+                HeroBehaviour.heroDest = heroTable;
                 isHungry = false;
                 isAtHall = false;
             }
@@ -72,7 +72,7 @@ public class HeroController : MonoBehaviour
             }
             if (hero.position == heroHall.position)
             {
-                heroBehaviour.heroDest = reception;
+                HeroBehaviour.heroDest = reception;
                 isCheckOut = false;
                 isAtHall = false; 
             }
@@ -81,7 +81,7 @@ public class HeroController : MonoBehaviour
 
     void goHall()
     {
-        heroBehaviour.heroDest = heroHall;
+        HeroBehaviour.heroDest = heroHall;
     }
 
     void timeGenerator()

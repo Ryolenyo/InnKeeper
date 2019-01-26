@@ -16,23 +16,23 @@ public class Room : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.position == moveFromNodeToNode.myHall.position)
+        if (player.position == PlayerBehaviour.myHall.position)
         {
-            moveFromNodeToNode.DestNode = moveFromNodeToNode.DestHall;
-            moveFromNodeToNode.NowNode = moveFromNodeToNode.myHall;
+            PlayerBehaviour.DestNode = PlayerBehaviour.DestHall;
+            PlayerBehaviour.NowNode = PlayerBehaviour.myHall;
         }
-        if (player.position == moveFromNodeToNode.DestHall.position)
+        if (player.position == PlayerBehaviour.DestHall.position)
         {
-            moveFromNodeToNode.myHall = moveFromNodeToNode.DestHall;
-            moveFromNodeToNode.DestNode = moveFromNodeToNode.FinalNode;
-            moveFromNodeToNode.NowNode = moveFromNodeToNode.DestHall;
+            PlayerBehaviour.myHall = PlayerBehaviour.DestHall;
+            PlayerBehaviour.DestNode = PlayerBehaviour.FinalNode;
+            PlayerBehaviour.NowNode = PlayerBehaviour.DestHall;
         }
     }
 
     void OnMouseDown()
     {
-        moveFromNodeToNode.DestNode = moveFromNodeToNode.myHall; 
-        moveFromNodeToNode.FinalNode = transform;
-        moveFromNodeToNode.DestHall = destHall;
+        PlayerBehaviour.DestNode = PlayerBehaviour.myHall;
+        PlayerBehaviour.FinalNode = transform;
+        PlayerBehaviour.DestHall = destHall;
     }
 }

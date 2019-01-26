@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class heroBehaviour : MonoBehaviour
+public class HeroBehaviour : MonoBehaviour
 {
     // DONT FORGET TO PLUS BOOKING TIME
     

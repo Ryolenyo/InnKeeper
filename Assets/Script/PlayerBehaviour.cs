@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveFromNodeToNode : MonoBehaviour
+public class PlayerBehaviour : MonoBehaviour
 {
 
     public static Transform NowNode;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class heroController : MonoBehaviour
+public class HeroController : MonoBehaviour
 {
     public Transform hero;
     public Transform heroHall;

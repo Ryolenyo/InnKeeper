@@ -40,7 +40,6 @@ public class BedroomNode : RoomNode
         {
             if(Player.HasCustomer())
             {
-                Player.SetDestinationToReception();
                 isCustomerCheckIn = true;
             }
             else

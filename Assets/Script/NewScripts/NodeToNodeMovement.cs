@@ -62,9 +62,15 @@ public class NodeToNodeMovement : MonoBehaviour
 
     public void SetDestination(GameObject destNode, GameObject hallNode)
     {
+        
+        if(currentNode == destNode && currentState == MovementStatusEnum.Stop)
+        {
+            if (isPlayer) currentNode.GetComponent<RoomNode>().PlayerCommand(gameObject);
+            return;
+        }
+
         if (targetNode == destNode)
         {
-            if (isPlayer) currentNode.GetComponent<RoomNode>().PlayerExitCommand(gameObject);
             return;
         }
 

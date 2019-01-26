@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
         if(!flag)
         {
             spawnNewHero();
+            spawnNewHero();
             flag = true;
         }
     }

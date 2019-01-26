@@ -138,6 +138,7 @@ public class Hero : MonoBehaviour
         isCheckIn = true;
         this.roomNode = roomNode;
         movement.SetDestination(roomNode.gameObject, roomNode.hallNode);
+        Player.instance.customer = null;
     }
 
     public void AssignTable(TableRoomNode tableNode)

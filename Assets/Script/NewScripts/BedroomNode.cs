@@ -16,6 +16,13 @@ public class BedroomNode : RoomNode
     public float cleanRate = 34;
     private float currentCleaness;
 
+    [Header("Bed Sprite")]
+    public SpriteRenderer bed;
+    public Sprite goodBedSprite;
+    public Sprite normalBedSprite;
+    public Sprite badBedSprite;
+
+
     private bool isPlayerIn = false;
     private bool isCustomerCheckIn = false;
     private bool cleanFlag = false;
@@ -95,19 +102,35 @@ public class BedroomNode : RoomNode
     {
         customer.transform.position = transform.position;
         customer.GetComponent<Hero>().isInRoom = false;
+        currentCleaness -= (maxCleaness / 2);
+        UpdateCleanImage();
     }
 
     public void Checkout()
     {
         isCustomerCheckIn = false;
-        currentCleaness = 0;
         cleanFlag = false;
-        UpdateCleanImage();
     }
 
     private void UpdateCleanImage()
     {
-        //SetImage
+        UpdateBedSprite();
         Debug.Log(gameObject.name + " cleaness = " + currentCleaness);
+    }
+
+    private void UpdateBedSprite()
+    {
+        if(currentCleaness == maxCleaness)
+        {
+            bed.sprite = goodBedSprite;
+        }
+        else if(currentCleaness >= maxCleaness / 2)
+        {
+            bed.sprite = normalBedSprite;
+        }
+        else
+        {
+            bed.sprite = badBedSprite;
+        }
     }
 }

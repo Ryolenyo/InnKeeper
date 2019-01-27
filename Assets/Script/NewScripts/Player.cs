@@ -15,11 +15,21 @@ public class Player : MonoBehaviour
     public bool hasOrder { get; private set; }
     public int orderNumber;
 
+    [Header("Food")]
+    public SpriteRenderer foodOnHead;
+    public Sprite[] food;
+
+    [Header("Order Bubble")]
+    public SpriteRenderer orderBubble;
+    public Sprite[] foodBubble;
+
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
         movement = GetComponent<NodeToNodeMovement>();
+        instance.foodOnHead.sprite = null;
+        instance.orderBubble.sprite = null;
     }
 
     // Update is called once per frame
@@ -56,8 +66,10 @@ public class Player : MonoBehaviour
         {
             instance.hasFood = value;
             instance.foodNumber = foodNumber;
+            if (instance.hasFood) instance.foodOnHead.sprite = instance.food[foodNumber];
+            else instance.foodOnHead.sprite = null;
+
             return true;
-            //set bubble image
         }
         else return false;
     }
@@ -68,9 +80,10 @@ public class Player : MonoBehaviour
         {
             instance.hasOrder = value;
             instance.orderNumber = orderNumber;
-            //set bubble image
-            return true;
+            if (instance.hasOrder) instance.orderBubble.sprite = instance.foodBubble[orderNumber];
+            else instance.orderBubble.sprite = null;
 
+            return true;
         }
         else return false;
     }

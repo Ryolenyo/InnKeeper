@@ -14,6 +14,7 @@ public class ReceptionRoom : RoomNode
     public GameObject checkoutPosition0;
     public GameObject checkoutPosition1;
     public GameObject checkoutPosition2;
+    public GameObject checkoutPosition3;
 
     [Header("Player Position Node")]
     public GameObject playerPositionNode;
@@ -130,6 +131,11 @@ public class ReceptionRoom : RoomNode
         {
             checkoutList[2].transform.position = checkoutPosition2.transform.position;
             checkoutList[2].GetComponent<Animator>().SetTrigger("NW");
+        }
+        if (checkoutList.Count >= 4)
+        {
+            checkoutList[3].transform.position = checkoutPosition3.transform.position;
+            checkoutList[3].GetComponent<Animator>().SetTrigger("NW");
         }
     }
 }

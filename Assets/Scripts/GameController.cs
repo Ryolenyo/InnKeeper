@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
     [Header("Spawn Parameter")]
     public AnimationCurve spawnDelay = AnimationCurve.Linear(0, 30, 1, 0);
     public float gameTime = 180f;
-    private float currentDelay = 3f;
+    private float currentDelay = 0.01f;
     private float currentTime = 0f;
 
     [Header("Hero Prefabs")]

@@ -757,6 +757,7 @@ MonoBehaviour:
   checkoutPosition0: {fileID: 8776333806973791226}
   checkoutPosition1: {fileID: 8776333806894450497}
   checkoutPosition2: {fileID: 8776333807448960355}
+  checkoutPosition3: {fileID: 0}
   playerPositionNode: {fileID: 8776333806646692164}
   playerCustomerPositionNode: {fileID: 8776333807094002395}
 --- !u!1 &8776333808133501966

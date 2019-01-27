@@ -46,9 +46,13 @@ public class GameController : MonoBehaviour
 
     void spawnNewHero()
     {
-        GameObject newHero = Instantiate(heroPrefabs[Random.Range(0, heroPrefabs.Length)]) as GameObject;
-        Debug.Log(newHero);
-        ReceptionRoom.instance.AddHeroCheckin(newHero.GetComponent<Hero>());
+        if(!ReceptionRoom.instance.IsCheckinFull())
+        {
+            GameObject newHero = Instantiate(heroPrefabs[Random.Range(0, heroPrefabs.Length)]) as GameObject;
+            Debug.Log(newHero);
+            ReceptionRoom.instance.AddHeroCheckin(newHero.GetComponent<Hero>());
+        }
+        
     }
 
     private void ResetDalay()

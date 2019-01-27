@@ -7,13 +7,14 @@ public class GameController : MonoBehaviour
     [Header("Spawn Parameter")]
     public AnimationCurve spawnDelay = AnimationCurve.Linear(0, 30, 1, 0);
     public float gameTime = 180f;
-    private float currentDelay;
-    private float currentTime;
+    private float currentDelay = 3f;
+    private float currentTime = 0f;
 
     [Header("Hero Prefabs")]
     public GameObject[] heroPrefabs;
 
     private bool flag = false;
+    private bool flag2 = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +27,7 @@ public class GameController : MonoBehaviour
         if(!flag)
         {
             MusicPlayer.PlayMusic(MusicEnum.GameplayNormal);
-            spawnNewHero();
             GameTracker.StartTimer(gameTime);
-            ResetDalay();
             flag = true;
         }
 

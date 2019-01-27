@@ -48,21 +48,26 @@ public class ReceptionRoom : RoomNode
     {
         player.transform.position = playerPositionNode.transform.position;
 
-        while (checkoutList.Count > 0)
+        if(checkoutList.Count > 0)
         {
-            Hero currentHero = checkoutList[0];
-            checkoutList.RemoveAt(0);
-            currentHero.Checkout();
+            while (checkoutList.Count > 0)
+            {
+                Hero currentHero = checkoutList[0];
+                checkoutList.RemoveAt(0);
+                currentHero.Checkout();
+            }
         }
-
-        if(checkinList.Count > 0 && !Player.instance.customer)
+        else
         {
-            Player.instance.customer = checkinList[0].gameObject;
-            checkinList[0].transform.position = playerCustomerPositionNode.transform.position;
-            checkinList[0].GetComponent<Animator>().SetTrigger("SW");
-            checkinList.RemoveAt(0);
+            if (checkinList.Count > 0 && !Player.instance.customer)
+            {
+                Player.instance.customer = checkinList[0].gameObject;
+                checkinList[0].transform.position = playerCustomerPositionNode.transform.position;
+                checkinList[0].GetComponent<Animator>().SetTrigger("SW");
+                checkinList.RemoveAt(0);
+            }
         }
-
+        
         UpdateHeroPosition();
         player.GetComponent<Animator>().SetTrigger("SE");
     }

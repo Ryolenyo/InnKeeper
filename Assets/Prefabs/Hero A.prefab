@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 4180672691524532910}
   - component: {fileID: 7365445966469239898}
   - component: {fileID: 291853811454413775}
+  - component: {fileID: 2688646044816801225}
   m_Layer: 0
   m_Name: Hero A
   m_TagString: Untagged
@@ -171,6 +172,25 @@ MonoBehaviour:
   enterHallNode: {fileID: 0}
   targetNode: {fileID: 0}
   currentState: 0
+--- !u!95 &2688646044816801225
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4119991285692960102}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 697d80155a96b8a45928f28286f87b44, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4428095660908833535
 GameObject:
   m_ObjectHideFlags: 0

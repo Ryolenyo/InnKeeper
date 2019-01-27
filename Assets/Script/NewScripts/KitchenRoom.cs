@@ -59,6 +59,7 @@ public class KitchenRoom : RoomNode
             UpdateSprite();
             Debug.Log("Food Send");
         }
+        player.GetComponent<Animator>().SetTrigger("NE");
     }
 
     private void UpdateSprite()

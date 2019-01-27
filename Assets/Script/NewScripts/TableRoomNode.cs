@@ -61,9 +61,10 @@ public class TableRoomNode : RoomNode
                 SfxPlayer.PlaySfx(SfxEnum.HeroGetFood);
                 orderBubble.sprite = null;
                 foodOnTable.sprite = food[foodNumber];
-                //remove food image from player
             }
         }
+
+        player.GetComponent<Animator>().SetTrigger("SE");
     }
 
     public override void PlayerExitCommand(GameObject player)
@@ -78,6 +79,7 @@ public class TableRoomNode : RoomNode
         hero.AssignTable(this);
         SfxPlayer.PlaySfx(SfxEnum.HeroHungry);
         orderBubble.sprite = unknownBubble;
+        customer.GetComponent<Animator>().SetTrigger("SW");
     }
 
     public override void CustomerExitCommand(GameObject customer)

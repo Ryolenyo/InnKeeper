@@ -24,10 +24,12 @@ public class NodeToNodeMovement : MonoBehaviour
 
     public MovementStatusEnum currentState;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -109,6 +111,7 @@ public class NodeToNodeMovement : MonoBehaviour
             default:
                 break;
         }
+        animator.SetTrigger("Walking");
     }
 
     private void MoveToNode(GameObject destination)
@@ -119,5 +122,9 @@ public class NodeToNodeMovement : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position
             , destination.transform.position, Time.deltaTime * speed * Time.timeScale);
+
+        Vector3 direction = (destination.transform.position - transform.position).normalized;
+        animator.SetFloat("xSpeed", direction.x);
+        animator.SetFloat("ySpeed", direction.y);
     }
 }

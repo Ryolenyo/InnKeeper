@@ -72,6 +72,7 @@ public class BedroomNode : RoomNode
             Debug.Log("Already has customer.");
             //alarm text
         }
+        player.GetComponent<Animator>().SetTrigger("NW");
     }
 
     public override void PlayerExitCommand(GameObject player)
@@ -96,7 +97,7 @@ public class BedroomNode : RoomNode
             else
                 SfxPlayer.PlaySfx(SfxEnum.HeroRoomBad);
         }
-        
+        customer.GetComponent<Animator>().SetTrigger("Sleeping");
     }
 
     public override void CustomerExitCommand(GameObject customer)

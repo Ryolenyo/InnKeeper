@@ -58,10 +58,12 @@ public class ReceptionRoom : RoomNode
         {
             Player.instance.customer = checkinList[0].gameObject;
             checkinList[0].transform.position = playerCustomerPositionNode.transform.position;
+            checkinList[0].GetComponent<Animator>().SetTrigger("SW");
             checkinList.RemoveAt(0);
         }
 
         UpdateHeroPosition();
+        player.GetComponent<Animator>().SetTrigger("SE");
     }
 
     public override void PlayerExitCommand(GameObject player)
@@ -98,12 +100,36 @@ public class ReceptionRoom : RoomNode
 
     public void UpdateHeroPosition()
     {
-        if (checkinList.Count >= 1) checkinList[0].transform.position = queuePosition0.transform.position;
-        if (checkinList.Count >= 2) checkinList[1].transform.position = queuePosition1.transform.position;
-        if (checkinList.Count >= 3) checkinList[2].transform.position = queuePosition2.transform.position;
+        if (checkinList.Count >= 1)
+        {
+            checkinList[0].transform.position = queuePosition0.transform.position;
+            checkinList[0].GetComponent<Animator>().SetTrigger("NW");
+        }
+        if (checkinList.Count >= 2)
+        {
+            checkinList[1].transform.position = queuePosition1.transform.position;
+            checkinList[1].GetComponent<Animator>().SetTrigger("NW");
+        }
+        if (checkinList.Count >= 3)
+        {
+            checkinList[2].transform.position = queuePosition2.transform.position;
+            checkinList[2].GetComponent<Animator>().SetTrigger("NW");
+        }
 
-        if (checkoutList.Count >= 1) checkoutList[0].transform.position = checkoutPosition0.transform.position;
-        if (checkoutList.Count >= 2) checkoutList[1].transform.position = checkoutPosition1.transform.position;
-        if (checkoutList.Count >= 3) checkoutList[2].transform.position = checkoutPosition2.transform.position;
+        if (checkoutList.Count >= 1)
+        {
+            checkoutList[0].transform.position = checkoutPosition0.transform.position;
+            checkoutList[0].GetComponent<Animator>().SetTrigger("NW");
+        }
+        if (checkoutList.Count >= 2)
+        {
+            checkoutList[1].transform.position = checkoutPosition1.transform.position;
+            checkoutList[1].GetComponent<Animator>().SetTrigger("NW");
+        }
+        if (checkoutList.Count >= 3)
+        {
+            checkoutList[2].transform.position = checkoutPosition2.transform.position;
+            checkoutList[2].GetComponent<Animator>().SetTrigger("NW");
+        }
     }
 }
